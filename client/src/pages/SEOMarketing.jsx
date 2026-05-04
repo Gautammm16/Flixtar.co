@@ -176,7 +176,7 @@ export default function SEOMarketing() {
       <div className="container"><header className="sh-content">
         <motion.div {...fade(.1)}><div className="label" style={{ marginBottom: 22 }}><TrendingUp size={13} /> SEO Marketing & Social Growth</div></motion.div>
         <motion.h1 className="sh-title" {...fade(.2)}>We Handle Your<br /><span className="gradient-text">Entire Content Engine.</span></motion.h1>
-        <motion.p className="sh-sub" {...fade(.35)}>From content strategy and script writing to post-production and analytics — we manage your YouTube and Instagram so you can focus on building your brand.</motion.p>
+        <motion.p className="sh-sub" {...fade(.35)}>From content strategy and script writing to post-production and analytics  we manage your YouTube and Instagram so you can focus on building your brand.</motion.p>
         <motion.div {...fade(.5)} style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}><CalendlyButton text="Get Your Growth Plan" /><Link to="/case-studies" className="btn-ghost">See Results <ArrowRight size={16} /></Link></motion.div>
         <motion.div className="sh-stats" {...fade(.65)}>{[{ v: '180K+', l: 'Avg Sub Growth' }, { v: '500%', l: 'Engagement' }, { v: '14M+', l: 'Views' }, { v: '90d', l: 'To Monetize' }].map((m, i) => (<div key={i} className="sh-met"><span className="v">{m.v}</span><span className="l">{m.l}</span></div>))}</motion.div>
       </header></div>

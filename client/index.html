@@ -1,41 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Flixtar is a dynamic media & marketing agency specializing in SEO marketing, social media growth, and AI-powered UGC content for Meta ads. We help creators and brands scale audiences and revenue." />
-    <meta name="keywords" content="digital marketing agency, SEO marketing, AI UGC, social media growth, YouTube growth, Instagram marketing, Meta ads, content strategy, brand growth" />
-    <meta property="og:title" content="Flixtar — Dynamic Media & Marketing Agency" />
-    <meta property="og:description" content="We turn content into conversions. SEO marketing, AI UGC ads, and social media growth for brands and creators." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Flixtar — Dynamic Media & Marketing Agency | SEO & AI UGC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800;900&family=Figtree:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
+<head>
+  <!-- Basic Setup -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Flixtar | Social Media Marketing & Personal Branding Agency</title>
+  <meta name="description" content="Flixtar helps founders, CEOs, and brands grow with social media marketing, personal branding, and content strategies that drive real business results." />
+  <meta name="keywords" content="social media marketing, personal branding agency, CEO branding, LinkedIn growth, Instagram growth, digital marketing agency" />
+  <meta name="author" content="Flixtar" />
+  <link rel="canonical" href="https://flixtar.co/" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flixtar.co/" />
+  <meta property="og:title" content="Flixtar — Social Media Growth for Founders & Brands" />
+  <meta property="og:description" content="Build authority, grow audience, and scale your business with proven social media strategies." />
+  <meta property="og:image" content="https://flixtar.co/preview-image.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Flixtar | Social Media Growth Agency" />
+  <meta name="twitter:description" content="Helping CEOs and brands grow with content, strategy, and personal branding." />
+  <meta name="twitter:image" content="https://flixtar.co/preview-image.jpg" />
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Flixtar",
+    "url": "https://flixtar.co",
+    "logo": "https://flixtar.co/logo.png",
+    "description": "Social media marketing and personal branding agency helping founders and brands scale digitally.",
+    "sameAs": [
+      "https://www.instagram.com/flixtar.in",
+      "https://www.linkedin.com/company/flixtar",
+      "https://twitter.com/flixtar"
+    ]
+  }
+  </script>
+
+  <!-- Service Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Social Media Marketing & Personal Branding",
+    "provider": {
       "@type": "Organization",
-      "name": "Flixtar",
-      "description": "Dynamic Media & Marketing Agency specializing in SEO marketing and AI UGC content",
-      "url": "https://flixtar.agency",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "email": "hello@flixtar.agency"
-      },
-      "service": [
-        { "@type": "Service", "name": "SEO Marketing & Social Media Growth" },
-        { "@type": "Service", "name": "AI UGC Content & Meta Ads" }
+      "name": "Flixtar"
+    },
+    "areaServed": "Worldwide",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Marketing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Instagram Growth" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "LinkedIn Personal Branding" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": { "@type": "Service", "name": "Content Strategy" }
+        }
       ]
     }
-    </script>
-  </body>
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does Flixtar do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Flixtar helps founders, CEOs, and brands grow through social media marketing, personal branding, and content strategies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is Flixtar for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We work with startups, founders, and businesses looking to scale their online presence and authority."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Analytics -->
+  <script async defer data-domain="flixtar.co" src="https://plausible.io/js/plausible.js"></script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

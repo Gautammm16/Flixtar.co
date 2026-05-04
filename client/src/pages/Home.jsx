@@ -131,69 +131,78 @@ const css = `
 .svc-card.seo .svc-link{color:var(--purple)}.svc-card.ugc .svc-link{color:var(--cyan)}
 .svc-card:hover .svc-link{gap:14px}
 
-/* ═══ PROOF BENTO GRID ═══ */
-.proof-bento{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:140px;
-  gap:12px;
+.results-custom{
   margin-top:40px;
+  display:flex;
+  flex-direction:column;
+  gap:28px;
 }
-.proof-item{
+
+.results-row{
+  display:grid;
+  gap:20px;
+}
+
+.row-3{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.row-2{
+  grid-template-columns:repeat(2,1fr);
+  justify-content:center;
+}
+
+.result-box{
   position:relative;
-  border-radius:var(--r-lg);
+  border-radius:18px;
   overflow:hidden;
+  cursor:pointer;
   background:var(--bg-card);
   border:1px solid var(--line);
-  cursor:pointer;
-  transition:all .45s var(--ease);
+  transition:all .4s ease;
 }
-.proof-item:hover{
-  border-color:var(--line-accent);
-  transform:translateY(-4px);
-  box-shadow:0 20px 56px rgba(0,0,0,.4);
-  z-index:2;
+
+.result-box:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
-.proof-item img{
+
+.result-box img{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center;
-  display:block;
-
-  /* 🔥 ALWAYS ZOOMED */
-  transform:scale(1.25);
-  transition:transform .6s var(--ease);
-}
-  .proof-item:hover img{
-  transform:scale(1.35);
 }
 
-.proof-item-ov{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(6,6,11,.7) 0%,rgba(6,6,11,.15) 50%,transparent 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  opacity:0;transition:opacity .35s;
-  color:#fff;font-family:var(--font-display);font-size:.82rem;font-weight:600;
+.result-box.large{
+  height:420px;
 }
-.proof-item:hover .proof-item-ov{opacity:1}
-.proof-item-ov .proof-eye{
-  width:44px;height:44px;border-radius:50%;
-  background:rgba(139,92,246,.8);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 24px rgba(139,92,246,.3);
-  transition:transform .3s var(--ease);
-}
-.proof-item:hover .proof-item-ov .proof-eye{transform:scale(1.08)}
 
-/* Bento placement — Row 1: vertical(1) + wide(4) + wide(5) */
-.proof-item:nth-child(1){grid-column:span 1;grid-row:span 3}
-.proof-item:nth-child(2){grid-column:span 1;grid-row:span 3}
-.proof-item:nth-child(3){grid-column:span 2;grid-row:span 2}
-.proof-item:nth-child(4){grid-column:span 2;grid-row:span 2}
-.proof-item:nth-child(5){grid-column:span 1;grid-row:span 2}
-.proof-item:nth-child(6){grid-column:span 1;grid-row:span 2}
-.proof-item:nth-child(7){grid-column:span 2;grid-row:span 2}
+.result-title{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:16px;
+  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .row-3{
+    grid-template-columns:1fr;
+  }
+
+  .row-2{
+    grid-template-columns:1fr;
+  }
+
+  .result-box.large{
+    height:auto;
+  }
+}
+
 
 /* ═══ PROOF LIGHTBOX ═══ */
 .lb-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
@@ -302,11 +311,12 @@ const clients = [
 const proofImages = [
   { src: '/images/proof/1.png', alt: 'Saamir Mithwani — Follower Growth' },
   { src: '/images/proof/2.png', alt: 'Section 8 Karim — Instagram Growth' },
+  { src: '/images/proof/3.png', alt: 'Client Brand — Channel Growth' },
   { src: '/images/proof/4.jpg', alt: 'Analytics — Engagement Trends' },
   { src: '/images/proof/5.png', alt: 'YouTube Analytics — 97K Views' },
-  { src: '/images/proof/3.png', alt: 'Client Brand — Channel Growth' },
   { src: '/images/proof/6.png', alt: 'Instagram — Product Research Reel' },
   { src: '/images/proof/7.png', alt: 'YouTube Analytics — Millions of Views' },
+  { src: '/images/proof/8.png', alt: 'Viral Views' },
 ];
 
 const results = [
@@ -449,7 +459,7 @@ export default function Home() {
             <span className="line"><span>AI + Distribution</span></span>
             <span className="line"><span className="accent">Turn It Into Revenue.</span></span>
           </motion.h1>
-          <motion.p className="hero-sub" {...fade(.4)}>From viral social media strategies to AI-powered UGC ads — we help brands and creators build audiences that buy, not just scroll.</motion.p>
+          <motion.p className="hero-sub" {...fade(.4)}>From viral social media strategies to AI-powered UGC ads  we help brands and creators build audiences that buy, not just scroll.</motion.p>
           <motion.div className="hero-actions" {...fade(.55)}>
             <CalendlyButton />
             <Link to="/case-studies" className="btn-ghost"><span>See Case Studies</span> <ArrowRight size={16} /></Link>
@@ -475,14 +485,14 @@ export default function Home() {
       <div className="container">
         <div className="svc-head">
           <div><div className="label">What We Do</div><h2 className="section-title">Two Engines.<br /><span className="gradient-text">One Mission: Growth.</span></h2></div>
-          <p className="svc-desc">Choose your growth path — organic authority or scalable performance advertising. We execute both with relentless precision.</p>
+          <p className="svc-desc">Choose your growth path  organic authority or scalable performance advertising. We execute both with relentless precision.</p>
         </div>
         <div className="svc-grid">
           <Link to="/content-growth" className="svc-card seo">
             <div className="svc-num">01</div>
             <div className="svc-icon"><TrendingUp size={26} /></div>
             <h3>Content Growth &<br />Social Growth</h3>
-            <p>We become your brand's content engine. Strategy, scripting, editing, posting — everything to dominate YouTube and Instagram.</p>
+            <p>We become your brand's content engine. Strategy, scripting, editing, posting  everything to dominate YouTube and Instagram.</p>
             <div className="svc-tags">{['Content Strategy','Script Writing','Post Production','YouTube SEO','Instagram Growth','Analytics'].map(t => <span key={t} className="svc-tag">{t}</span>)}</div>
             <div className="svc-link">Explore Content Growth <ArrowUpRight size={18} /></div>
           </Link>
@@ -505,20 +515,37 @@ export default function Home() {
           <h2 className="section-title">Real Results, <span className="gradient-text">Real Screenshots</span></h2>
           <p className="subhead" style={{ margin: '12px auto 0' }}>Direct from our analytics dashboards.</p>
         </div>
-        <div
-          className="proof-bento"
-          style={{ opacity: proofIn ? 1 : 0, transform: proofIn ? 'translateY(0)' : 'translateY(24px)', transition: 'all .7s var(--ease)' }}
-        >
-          {proofImages.map((img, i) => (
-            <div key={i} className="proof-item" onClick={() => openLightbox(i)}>
-              <img src={img.src} alt={img.alt} loading="lazy" decoding="async" />
-              <div className="proof-item-ov">
-                <div className="proof-eye"><Eye size={18} color="#fff" /></div>
-                <span>View Full</span>
-              </div>
-            </div>
-          ))}
-        </div>
+     <div className="results-custom">
+
+  {/* ROW 1 */}
+  <div className="results-row row-3">
+    {proofImages.slice(0, 3).map((img, i) => (
+      <div key={i} className="result-box" onClick={() => openLightbox(i)}>
+        <img src={img.src} alt={img.alt} />
+        <div className="result-title">{img.alt}</div>
+      </div>
+    ))}
+  </div>
+
+  {/* ROW 2 */}
+  <div className="results-row row-2">
+    {proofImages.slice(3, 5).map((img, i) => (
+      <div key={i} className="result-box large" onClick={() => openLightbox(i + 3)}>
+        <img src={img.src} alt={img.alt} />
+      </div>
+    ))}
+  </div>
+
+  {/* ROW 3 */}
+  <div className="results-row row-3">
+    {proofImages.slice(5, 8).map((img, i) => (
+      <div key={i} className="result-box" onClick={() => openLightbox(i + 5)}>
+        <img src={img.src} alt={img.alt} />
+      </div>
+    ))}
+  </div>
+
+</div>
       </div>
     </section>
 
