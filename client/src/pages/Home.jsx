@@ -339,7 +339,6 @@ const clients = [
   { name: "Ankit Arora", logo: "https://res.cloudinary.com/dgtc1q3ae/image/upload/v1749464745/ai_ankit_ox37to.png", link: "https://www.instagram.com/ai_ankitarora/", type: "person" },
 ];
 
-/* Images ordered for bento: vertical ones first, then horizontal ones */
 const proofImages = [
   { src: '/images/proof/1.png', alt: 'Saamir Mithwani — Follower Growth' },
   { src: '/images/proof/2.png', alt: 'Section 8 Karim — Instagram Growth' },
@@ -357,16 +356,6 @@ const results = [
   { icon: <DollarSign size={20}/>, n: '$12M+', h: 'Revenue Driven', p: 'For our clients' },
   { icon: <TrendingUp size={20}/>, n: '4.2x', h: 'Avg. ROAS', p: 'On Meta campaigns' },
 ];
-
-// const testimonials = [
-//   // { name: '', title: 'EX Vice President HCL Technologies', video: '/videos/darren.mp4', orientation: 'vertical' },
-//   { name: '', title: 'EX Vice President HCL Technologies', video: 'https://res.cloudinary.com/dtlyv4qxu/video/upload/f_auto,q_auto/v1/darren', orientation: 'vertical' },
-  
-//   { name: 'Isuru Warakagoda', title: 'Founder Exyme Media', video: '/videos/exyme.mp4', orientation: 'vertical' },
-//   { name: 'Saamir Mithwani', title: 'Ecom Dropshipper', video: '/videos/saamir.mp4', orientation: 'vertical' },
-//   { name: 'Alex', title: 'Amazon Expert', video: '/videos/alex.mp4', orientation: 'vertical' },
-//   { name: 'Namee', title: 'CEO LLMWARE', video: '/videos/namee.mp4', orientation: 'vertical' },
-// ];
 
 
 const testimonials = [

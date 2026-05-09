@@ -348,13 +348,6 @@ const services = [
   { icon: <TrendingUp size={20}/>, title: 'Brand Identity', desc: 'Visual consistency.' },
 ];
 
-// const vslSlides = [
-//   { id: 5, url: '/videos/VSL/LLMWare X Intel.mp4' },
-//   { id: 1, url: '/videos/VSL/intro.mp4' },
-//   { id: 3, url: '/videos/VSL/SaameerX03.mp4' },
-//   { id: 2, url: '/videos/VSL/VSL.mp4' },
-//   { id: 4, url: '/videos/VSL/1 editing course.mp4' },
-// ];
 const vslSlides = [
   {
     id: 5,
@@ -377,13 +370,7 @@ const vslSlides = [
     url: 'https://res.cloudinary.com/dtlyv4qxu/video/upload/v1777877688/1_editing_course_g9eyxc.mp4'
   },
 ];
-// const shortVids = [
-//   { id: 1, url: '/videos/seo vertical/2 (1).mp4' },
-//   { id: 2, url: '/videos/seo vertical/2.mp4' },
-//   { id: 3, url: '/videos/seo vertical/3.mp4' },
-//   { id: 4, url: '/videos/seo vertical/Anime.mp4' },
-//   { id: 5, url: '/videos/seo vertical/Finallll.mp4' },
-// ];
+
 const shortVids = [
   {
     id: 1,

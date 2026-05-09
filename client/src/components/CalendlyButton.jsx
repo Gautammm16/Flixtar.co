@@ -1,5 +1,3 @@
-
-
 import React, { useEffect } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
