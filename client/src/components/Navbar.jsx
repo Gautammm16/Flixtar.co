@@ -8,8 +8,21 @@ const css = `
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .5s var(--ease)}
 .nav-glass{background:rgba(6,6,11,0.75);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
 .nav-in{max-width:var(--max-w);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px;padding:0 clamp(20px,5vw,56px)}
-.nav-logo{font-family:var(--font-display);font-size:1.35rem;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:2px;transition:opacity .3s;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.nav-logo:hover{opacity:.8}
+// .nav-logo{font-family:var(--font-display);font-size:1.35rem;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:2px;transition:opacity .3s;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.nav-logo{
+  display:flex;
+  align-items:center;
+  transition:opacity .3s;
+}
+
+.nav-logo img{
+  height:50px;
+  width:auto;
+  object-fit:contain;
+  display:block;
+}
+
+.nav-logo:hover{opacity:.85}
 .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .nav-links a{font-family:var(--font-body);font-size:.84rem;font-weight:500;color:var(--white-dim);transition:color .3s;position:relative}
 .nav-links a:hover,.nav-links a.on{color:var(--white)}
@@ -30,12 +43,44 @@ export default function Navbar() {
   useEffect(() => { const h = () => setScrolled(window.scrollY > 30); window.addEventListener('scroll', h, { passive: true }); return () => window.removeEventListener('scroll', h); }, []);
   useEffect(() => { setOpen(false); }, [loc]);
   useEffect(() => { document.body.style.overflow = open ? 'hidden' : ''; return () => { document.body.style.overflow = ''; }; }, [open]);
+  useEffect(() => {
+
+  /* PRECONNECT */
+  const preconnect1 = document.createElement('link');
+  preconnect1.rel = 'preconnect';
+  preconnect1.href = 'https://assets.calendly.com';
+
+  const preconnect2 = document.createElement('link');
+  preconnect2.rel = 'preconnect';
+  preconnect2.href = 'https://calendly.com';
+
+  document.head.appendChild(preconnect1);
+  document.head.appendChild(preconnect2);
+
+  /* PRELOAD CSS */
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = 'https://assets.calendly.com/assets/external/widget.css';
+
+  document.head.appendChild(css);
+
+  /* PRELOAD SCRIPT */
+  const script = document.createElement('script');
+  script.src = 'https://assets.calendly.com/assets/external/widget.js';
+  script.async = true;
+
+  document.body.appendChild(script);
+
+}, []);
   const is = (p) => loc.pathname === p ? 'on' : '';
 
   return (<><style>{css}</style>
     <motion.nav className={`nav ${scrolled ? 'nav-glass' : ''}`} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6, ease: [.16,1,.3,1] }}>
       <div className="nav-in">
-        <Link to="/" className="nav-logo">FLIXTAR</Link>
+        {/* <Link to="/" className="nav-logo">FLIXTAR</Link> */}
+        <Link to="/" className="nav-logo">
+  <img src="/Flixtar.webp" alt="Flixtar" />
+</Link>
         <ul className="nav-links">
           <li><Link to="/" className={is('/')}>Home</Link></li>
           <li><Link to="/content-growth" className={is('/contnet-growth')}>Content Growth</Link></li>

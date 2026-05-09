@@ -130,7 +130,6 @@ const css = `
 .svc-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:.9rem;transition:gap .35s var(--ease)}
 .svc-card.seo .svc-link{color:var(--purple)}.svc-card.ugc .svc-link{color:var(--cyan)}
 .svc-card:hover .svc-link{gap:14px}
-
 .results-custom{
   margin-top:40px;
   display:flex;
@@ -173,9 +172,43 @@ const css = `
   object-fit:cover;
 }
 
+/* UPDATED */
 .result-box.large{
-  height:420px;
+  height:auto; /* remove fixed huge height */
+  aspect-ratio:16/9; /* keeps proper proportion */
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#111;
 }
+
+.result-box.large img{
+  width:100%;
+  height:100%;
+  object-fit:contain; /* prevents crop */
+  transform:scale(0.96); /* subtle zoom out */
+}
+
+/* REMOVE THIS COMPLETELY */
+/*
+.result-box.zoomed-out{
+  height: 320px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.result-box.zoomed-out img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(0.92);
+}
+*/
 
 .result-title{
   position:absolute;
@@ -202,7 +235,6 @@ const css = `
     height:auto;
   }
 }
-
 
 /* ═══ PROOF LIGHTBOX ═══ */
 .lb-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
@@ -527,14 +559,18 @@ export default function Home() {
     ))}
   </div>
 
-  {/* ROW 2 */}
-  <div className="results-row row-2">
-    {proofImages.slice(3, 5).map((img, i) => (
-      <div key={i} className="result-box large" onClick={() => openLightbox(i + 3)}>
-        <img src={img.src} alt={img.alt} />
-      </div>
-    ))}
-  </div>
+{/* ROW 2 */}
+<div className="results-row row-2">
+  {proofImages.slice(3, 5).map((img, i) => (
+    <div
+      key={i}
+      className="result-box large"
+      onClick={() => openLightbox(i + 3)}
+    >
+      <img src={img.src} alt={img.alt} />
+    </div>
+  ))}
+</div>
 
   {/* ROW 3 */}
   <div className="results-row row-3">
